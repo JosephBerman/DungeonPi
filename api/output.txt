@@ -1,0 +1,14 @@
+{
+   "result_index": 0,
+   "results": [
+      {
+         "final": true,
+         "alternatives": [
+            {
+               "transcript": "wake up and smell the ashes next week up and smell the ashes ",
+               "confidence": 0.75
+            }
+         ]
+      }
+   ]
+}
