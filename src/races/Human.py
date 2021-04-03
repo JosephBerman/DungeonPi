@@ -1,6 +1,9 @@
-from characterRace import characterRace
+from CharacterRace import CharacterRace
 
 
-class Elf(characterRace):
+class Human(CharacterRace):
     def __init__(self):
         super().__init__("Human", 30, "Dexterity", "Charisma")
+
+
+

@@ -1,4 +1,4 @@
-class characterRace:
+class CharacterRace:
     def __init__(self, nm: str, sd: int, s1: str, s2: str):
 
         self._name = nm
@@ -6,7 +6,7 @@ class characterRace:
         self._statBonus1 = s1
         self._statBonus2 = s2
 
-        super().__init__()
+
 
     def printRace(self):
         print(self._name, self._speed, self._statBonus1, self._statBonus2)
