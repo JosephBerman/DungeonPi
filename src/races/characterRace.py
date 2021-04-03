@@ -1,12 +1,9 @@
-from IRace import IRace
-
-
-class raceElf(IRace):
-    def __init__(self):
-        self.__name = "Elf"
-        self.__speed = 35
-        self.__statBonus1 = "Wisdom"
-        self.__statBonus2 = "Dexterity"
+class characterRace:
+    def __init__(self, nm: str, sd: int, s1: str, s2: str):
+        self.__name = nm
+        self.__speed = sd
+        self.__statBonus1 = s1
+        self.__statBonus2 = s2
 
         super().__init__()
 
@@ -24,10 +21,3 @@ class raceElf(IRace):
 
     def getStatBonus2(self):
         return self.__statBonus2
-
-
-
-elf = raceElf()
-elf.printRace()
-
-
