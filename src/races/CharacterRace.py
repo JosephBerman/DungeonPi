@@ -19,3 +19,6 @@ class CharacterRace:
 
     def getStatBonus2(self):
         return self._statBonus2
+
+
+
