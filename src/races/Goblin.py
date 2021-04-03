@@ -3,4 +3,4 @@ from characterRace import characterRace
 
 class Elf(characterRace):
     def __init__(self):
-        super().__init__("Elf", 35, "Wisdom", "Dexterity")
+        super().__init__("Goblin", 30, "None", "None")
