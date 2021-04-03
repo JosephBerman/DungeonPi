@@ -1,13 +1,10 @@
 from characterRace import characterRace
 
 
-class Elf():
+class Elf(characterRace):
     def __init__(self):
-        self.elf = characterRace("Elf", 35, "Wisdom", "Dex")
-
-    def printElf(self):
-        self.elf.printRace()
+        super().__init__("Elf", 35, "Wisdom", "Dexterity")
 
 
 testing = Elf()
-testing.printElf()
+testing.printRace()
