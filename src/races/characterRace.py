@@ -1,23 +1,25 @@
 class characterRace:
     def __init__(self, nm: str, sd: int, s1: str, s2: str):
-        self.__name = nm
-        self.__speed = sd
-        self.__statBonus1 = s1
-        self.__statBonus2 = s2
+
+        self._name = nm
+        self._speed = sd
+        self._statBonus1 = s1
+        self._statBonus2 = s2
 
         super().__init__()
 
     def printRace(self):
-        print(self.__name, self.__speed, self.__statBonus1, self.__statBonus2)
+        print(self._name, self._speed, self._statBonus1, self._statBonus2)
 
     def getName(self):
-        return self.__name
+        return self._name
 
     def getSpeed(self):
-        return self.__speed
+        return self._speed
 
     def getStatBonus1(self):
-        return self.__statBonus1
+        return self._statBonus1
 
     def getStatBonus2(self):
-        return self.__statBonus2
+        return self._statBonus2
+
