@@ -6,10 +6,13 @@ class Stats:
         self._intel = il
         self._wis = ws
         self._cha = ca
+        self._health = None
+        self._armor = None
 
     def printStats(self):
         print("str:", self._stre, "dex:", self._dex,
-              "con:", self._con, "int:", self._intel, "wis:", self._wis, "cha:", self._cha)
+              "con:", self._con, "int:", self._intel, "wis:", self._wis,
+              "cha:", self._cha, "Health:", self._health, "AC:", self._armor)
 
     def getStre(self):
         return self._stre
@@ -28,6 +31,10 @@ class Stats:
 
     def getCha(self):
         return self._cha
+
+    def setHealthArmor(self, hh: int, ac: int):
+        self._health = hh
+        self._armor = ac
 
     def statBonus1(self, bn: str):
         if bn == "Strength":

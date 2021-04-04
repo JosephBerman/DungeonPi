@@ -10,6 +10,7 @@ class Character:
         self._stats = st
         self._stats.statBonus1(self._characterRace.getStatBonus1())
         self._stats.statBonus2(self._characterRace.getStatBonus2())
+        self._stats.setHealthArmor(self._characterClass.getHealth(), self._characterClass.getBaseArmor())
 
     def printCharacter(self):
         self._characterRace.printRace()
