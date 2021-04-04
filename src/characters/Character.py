@@ -1,4 +1,5 @@
 from src.characterClass.ProtagonistClasses import *
+from src.races.AntagonistRaces import *
 from src.races.ProtagonistRaces import *
 from src.characters.Stats import *
 
@@ -18,5 +19,5 @@ class Character:
         self._stats.printStats()
 
 
-testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
+testing = Character(Goblin(), Monk(), Stats(1, 1, 1, 1, 1, 1))
 testing.printCharacter()
