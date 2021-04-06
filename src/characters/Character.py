@@ -17,7 +17,7 @@ class Character:
         self._stats.statBonus1(self._characterRace.getStatBonus1())
         self._stats.statBonus2(self._characterRace.getStatBonus2())
         self._stats.setHealthArmor(self._characterClass.getHealth(), self._characterClass.getBaseArmor())
-        self._inventory = Inventory(None)
+        self._inventory = Inventory([])
 
     def printCharacter(self):
         self._characterRace.printRace()
@@ -39,3 +39,8 @@ print(testing.getInventory().getItem(0).__eq__(NullItem()))
 testing.getInventory().addItem(Weapons("Short Sword", 8, "Slashing", 0, "None"))
 testing.getInventory().printInventory()
 print(testing.getInventory().getItem(0).__eq__(testing.getInventory().getItem(1)))
+print(testing.getInventory().removeItem(0))
+print(testing.getInventory().removeItem(0))
+testing.getInventory().printInventory()
+print(testing.getInventory().removeItem(0))
+testing.getInventory().printInventory()
