@@ -1,6 +1,4 @@
-from .weapons import *
-from ..items.Item import *
-from .NullItem import *
+from src.items.weapons.Weapons import *
 
 
 class Inventory:
@@ -18,14 +16,18 @@ class Inventory:
         return self._items
 
     def addItem(self, itm):
-        self._items.append(itm)
-
-    def getItem(self, im: int):
-        if len(self._items) == 0:
-            return 0
-        elif im >= len(self._items):
-            return 0
-        elif im < 0:
-            return 0
+        if self._items[0].__eq__(NullItem()):
+            self._items[0] = itm
         else:
-            return self._items[0].returnItem()
+            self._items.append(itm)
+
+    def getItem(self, im: int) -> Item:
+        if len(self._items) == 0:
+            return NullItem()
+        elif im >= len(self._items):
+            return NullItem()
+        elif im < 0:
+            return NullItem()
+        else:
+            return self._items[im].returnItem()
+

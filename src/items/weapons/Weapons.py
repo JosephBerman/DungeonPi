@@ -1,4 +1,4 @@
-from ..Item import *
+from src.items.Item import *
 import random
 
 random.seed()
@@ -12,6 +12,10 @@ class Weapons(Item):
         self._damageType = dt
         self._range = rg
         self._magic = mg
+
+    def __eq__(self, other):
+        return (self._name == other._name and self._damageDie == other._damageDie and
+                self._damageType == other._damageType and self._range == other._range and self._magic == other._magic)
 
     def printItem(self):
         print(self._name, self._damageDie, self._damageType, self._range, self._magic)
