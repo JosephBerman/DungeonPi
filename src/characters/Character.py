@@ -2,6 +2,11 @@ from src.characterClass.ProtagonistClasses import *
 from src.races.AntagonistRaces import *
 from src.races.ProtagonistRaces import *
 from src.characters.Stats import *
+from src.items.Inventory import *
+from src.items.weapons.Weapons import *
+import random
+
+random.seed()
 
 
 class Character:
@@ -12,12 +17,18 @@ class Character:
         self._stats.statBonus1(self._characterRace.getStatBonus1())
         self._stats.statBonus2(self._characterRace.getStatBonus2())
         self._stats.setHealthArmor(self._characterClass.getHealth(), self._characterClass.getBaseArmor())
+        self._inventory = Inventory(None)
 
     def printCharacter(self):
         self._characterRace.printRace()
         self._characterClass.printClass()
         self._stats.printStats()
+        self._inventory.printInventory()
+
+    def getInventory(self):
+        return self._inventory
 
 
-testing = Character(Goblin(), Monk(), Stats(1, 1, 1, 1, 1, 1))
-testing.printCharacter()
+testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
+#testing.getInventory().addItem(Weapons("Short Sword", 8, "Slashing", 0, "None"))
+testing.getInventory().getInventory()
