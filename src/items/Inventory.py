@@ -15,7 +15,7 @@ class Inventory:
     def getInventory(self):
         return self._items
 
-    def addItem(self, itm):
+    def addItem(self, itm: Item):
         if self._items[0].__eq__(NullItem()):
             self._items[0] = itm
         else:
