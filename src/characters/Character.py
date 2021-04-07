@@ -32,7 +32,7 @@ class Character:
 testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
 testing.printCharacter()
 print(testing.getInventory().getItem(0).__eq__(NullItem()))
-testing.getInventory().addItem(Weapons("Short Sword", 8, "Slashing", 0, "None"))
+testing.getInventory().addItem(Weapons("Short Sword", 8, "Slashing", 0, "Strength", "None"))
 testing.getInventory().printInventory()
 print(testing.getInventory().getItem(0).getDamage())
 testing.getInventory().addItem(NullItem())

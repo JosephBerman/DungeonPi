@@ -1,3 +1,5 @@
+from src.Constants import *
+
 import random
 
 random.seed()

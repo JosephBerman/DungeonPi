@@ -1,3 +1,6 @@
+from src.Constants import *
+CONSTANT = Constants()
+
 class Stats:
     def __init__(self, st: int, dx: int, cn: int, il: int, ws: int, ca: int):
         self._stre = st
@@ -43,29 +46,29 @@ class Stats:
         self._armor = ac
 
     def statBonus1(self, bn: str):
-        if bn == "Strength":
+        if bn == CONSTANT.STRENGTH:
             self._stre += 2
-        elif bn == "Dexterity":
+        elif bn == CONSTANT.DEXTERITY:
             self._dex += 2
-        elif bn == "Constitution":
+        elif bn == CONSTANT.CONSTITUTION:
             self._con += 2
-        elif bn == "Intelligence":
+        elif bn == CONSTANT.INTELLIGENCE:
             self._intel += 2
-        elif bn == "Wisdom":
+        elif bn == CONSTANT.WISDOM:
             self._wis += 2
-        elif bn == "Charisma":
+        elif bn == CONSTANT.CHARISMA:
             self._cha += 2
 
     def statBonus2(self, bn: str):
-        if bn == "Strength":
+        if bn == CONSTANT.STRENGTH:
             self._stre += 1
-        elif bn == "Dexterity":
+        elif bn == CONSTANT.DEXTERITY:
             self._dex += 1
-        elif bn == "Constitution":
+        elif bn == CONSTANT.CONSTITUTION:
             self._con += 1
-        elif bn == "Intelligence":
+        elif bn == CONSTANT.INTELLIGENCE:
             self._intel += 1
-        elif bn == "Wisdom":
+        elif bn == CONSTANT.WISDOM:
             self._wis += 1
-        elif bn == "Charisma":
+        elif bn == CONSTANT.CHARISMA:
             self._cha += 1
