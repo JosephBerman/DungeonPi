@@ -1,3 +1,5 @@
+from src.combat.Damage import *
+
 class Item:
     def __init__(self, nm: str):
         self._name = nm
@@ -10,6 +12,9 @@ class Item:
 
     def printItem(self):
         return self._name
+
+    def getDamage(self):
+        return 0
 
 
 class NullItem(Item):

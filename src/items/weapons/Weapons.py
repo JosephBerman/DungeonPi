@@ -1,4 +1,5 @@
 from src.items.Item import *
+from src.combat.Damage import *
 import random
 
 random.seed()
@@ -12,6 +13,7 @@ class Weapons(Item):
         self._damageType = dt
         self._range = rg
         self._magic = mg
+        self._damage = Damage(self._damageDie, self._damageType, self._magic)
 
     def __eq__(self, other) -> bool:
         return (self._name == other._name and self._damageDie == other._damageDie and
@@ -19,6 +21,9 @@ class Weapons(Item):
 
     def printItem(self):
         print(self._name, self._damageDie, self._damageType, self._range, self._magic)
+
+    def getDamage(self):
+        return self._damage.getDamage()
 
     def getDamageDie(self):
         return self._damageDie
@@ -32,11 +37,3 @@ class Weapons(Item):
     def getMagic(self):
         return self._magic
 
-    # TODO Figure out what types of magic damage I want to have and create a damage class to handle status effects
-    def magicBonus(self):
-        if self._magic == "Fire":
-            return random.randint(1, 4)
-        elif self._magic == "Ice":
-            return random.randint(1, 4)
-        else:
-            return 0
