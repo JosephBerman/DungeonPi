@@ -10,13 +10,17 @@ class Damage:
         self._magic = Magic(mg)
 
     def getDamage(self) -> int:
-        return random.randint(1, self._damageDie) + self._magic.magicDamage()
+        if self._damageDie == 0:
+            return 0
+        else:
+            return random.randint(1, self._damageDie) + self._magic.magicDamage()
 
     def getEffect(self):
         return self._magic.magicEffect()
 
     def getDamageType(self) -> str:
         return self._damageType
+
 
 
 class Magic:

@@ -15,6 +15,7 @@ class Weapons(Item):
         self._magic = mg
         self._damage = Damage(self._damageDie, self._damageType, self._magic)
 
+
     def __eq__(self, other) -> bool:
         return (self._name == other._name and self._damageDie == other._damageDie and
                 self._damageType == other._damageType and self._range == other._range and self._magic == other._magic)

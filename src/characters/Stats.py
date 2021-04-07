@@ -32,6 +32,12 @@ class Stats:
     def getCha(self):
         return self._cha
 
+    def getHealth(self):
+        return self._health
+
+    def getArmor(self):
+        return self._armor
+
     def setHealthArmor(self, hh: int, ac: int):
         self._health = hh
         self._armor = ac

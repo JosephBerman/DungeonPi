@@ -3,6 +3,7 @@ from src.combat.Damage import *
 class Item:
     def __init__(self, nm: str):
         self._name = nm
+        self._damage = Damage(0, "NULL", "NULL")
 
     def __eq__(self, other):
         return self._name == other._name
@@ -14,7 +15,7 @@ class Item:
         return self._name
 
     def getDamage(self):
-        return 0
+        return self._damage.getDamage()
 
 
 class NullItem(Item):
