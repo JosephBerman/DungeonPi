@@ -3,7 +3,7 @@ from src.Constants import *
 import random
 
 random.seed()
-
+CONSTANT = Constants()
 
 class Damage:
     def __init__(self, dd: int, dt: str, mg: str):
@@ -30,17 +30,17 @@ class Magic:
         self._magic = mg
 
     def magicDamage(self) -> int:
-        if self._magic == "Fire":
+        if self._magic == CONSTANT.FIRE:
             return random.randint(1, 6)
-        elif self._magic == "Ice":
+        elif self._magic == CONSTANT.ICE:
             return random.randint(1, 4)
         else:
             return 0
 
     def magicEffect(self) -> str:
-        if self._magic == "Fire":
+        if self._magic == CONSTANT.FIRE:
             return "Burned"
-        elif self._magic == "Ice":
+        elif self._magic == CONSTANT.ICE:
             return "Frozen"
         else:
             return "None"

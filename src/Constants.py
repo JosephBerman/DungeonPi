@@ -7,7 +7,9 @@ class Constants:
         self.D10 = 10
         self.D12 = 12
         self.D100 = 100
+        self.CRITICALROLL = 20
         self.CRITICAL = 100
+        self.FAILROLL = 1
         self.FAIL = -100
         self.ITEMATTACK = -200
         self.STRENGTH = "Strength"

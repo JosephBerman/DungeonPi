@@ -17,12 +17,11 @@ class Attack:
         roll = random.randint(1, CONSTANT.D20)
         if type(item) is not Weapons:
             return CONSTANT.ITEMATTACK
-        if roll == 20:
+        if roll == CONSTANT.CRITICALROLL:
             print("Critical Hit!")
             return CONSTANT.CRITICAL
-        elif roll == 1:
+        elif roll == CONSTANT.FAILROLL:
             print("Critical Miss!")
             return CONSTANT.FAIL
         else:
             return roll + item.getBonus(self._stats)
-

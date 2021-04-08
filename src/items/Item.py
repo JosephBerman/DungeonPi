@@ -25,3 +25,4 @@ class NullItem(Item):
     def __init__(self):
         super().__init__("NULL")
 
+
