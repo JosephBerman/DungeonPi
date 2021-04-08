@@ -5,24 +5,24 @@ from src.Constants import *
 import random
 
 random.seed()
-CONSTANTS = Constants()
+CONSTANT = Constants()
+
 
 class Attack:
-    def __init__(self, st: Stats, wp: Weapons):
+    def __init__(self, st: Stats):
         self._stats = st
-        self._weapons = wp
 
-#TODO figure out how i want to handle taking the hit
-    def getAttack(self) -> int:
+    # TODO figure out how i want to handle taking the hit
+    def getAttack(self, item: Item) -> int:
         roll = random.randint(1, CONSTANT.D20)
+        if type(item) is not Weapons:
+            return CONSTANT.ITEMATTACK
         if roll == 20:
             print("Critical Hit!")
-            return self._weapons.getDamage()  * 2 + self._weapons.getBonus(self._stats)
+            return CONSTANT.CRITICAL
         elif roll == 1:
             print("Critical Miss!")
-            if random.randint(1, CONSTANT.D4) == 1:
-                print("You hurt yourself for", random.randint(1, CONSTANT.D4))
-
-            return 0
+            return CONSTANT.FAIL
         else:
-            return roll + self._weapons.getBonus(self._stats)
+            return roll + item.getBonus(self._stats)
+

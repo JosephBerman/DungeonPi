@@ -4,6 +4,7 @@ from src.races.ProtagonistRaces import *
 from src.characters.Stats import *
 from src.items.Inventory import *
 from src.items.weapons.Weapons import *
+from src.combat.Attack import *
 import random
 
 random.seed()
@@ -18,6 +19,7 @@ class Character:
         self._stats.statBonus2(self._characterRace.getStatBonus2())
         self._stats.setHealthArmor(self._characterClass.getHealth(), self._characterClass.getBaseArmor())
         self._inventory = Inventory([])
+        self._attack = Attack(self._stats)
 
     def printCharacter(self):
         self._characterRace.printRace()
@@ -28,6 +30,8 @@ class Character:
     def getInventory(self):
         return self._inventory
 
+    def getAttack(self):
+        return self._attack
 
 testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
 testing.printCharacter()
@@ -38,3 +42,4 @@ print(testing.getInventory().getItem(0).getDamage())
 testing.getInventory().addItem(NullItem())
 print(testing.getInventory().getItem(2).getDamage())
 testing.getInventory().printInventory()
+print(testing.getAttack().getAttack(testing.getInventory().getItem(0)))

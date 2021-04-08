@@ -36,7 +36,7 @@ class Weapons(Item):
         return self._damageType
 
     def getBonus(self, st: Stats):
-        if self._bonus == CONSTANT.STRENGTH():
+        if self._bonus == CONSTANT.STRENGTH:
             return st.getStre()
         elif self._bonus == CONSTANT.DEXTERITY:
             return st.getDex()
