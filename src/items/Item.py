@@ -17,7 +17,7 @@ class Item:
     def getDamage(self):
         return self._damage.getDamage()
 
-    def getBonus(self):
+    def getBonus(self, nothing):
         return
 
 

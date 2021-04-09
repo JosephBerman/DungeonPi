@@ -5,6 +5,7 @@ from src.characters.Stats import *
 from src.items.Inventory import *
 from src.items.weapons.Weapons import *
 from src.combat.Attack import *
+from src.combat.Defence import *
 import random
 
 random.seed()
@@ -20,6 +21,7 @@ class Character:
         self._stats.setHealthArmor(self._characterClass.getHealth(), self._characterClass.getBaseArmor())
         self._inventory = Inventory([])
         self._attack = Attack(self._stats)
+        self._defence = Defence(self._stats)
 
     def printCharacter(self):
         self._characterRace.printRace()
@@ -27,20 +29,27 @@ class Character:
         self._stats.printStats()
         self._inventory.printInventory()
 
+    def getStats(self):
+        return self._stats
+
     def getInventory(self):
         return self._inventory
 
     def getAttack(self):
         return self._attack
 
+    def getDefence(self):
+        return self._defence
+
 
 testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
-testing.printCharacter()
-print(testing.getInventory().getItem(0).__eq__(NullItem()))
-testing.getInventory().addItem(Weapons("Short Sword", 8, CONSTANT.SLASHING, 0, CONSTANT.STRENGTH, "None"))
-testing.getInventory().printInventory()
-print(testing.getInventory().getItem(0).getDamage())
-testing.getInventory().addItem(NullItem())
-print(testing.getInventory().getItem(2).getDamage())
-testing.getInventory().printInventory()
-print(testing.getAttack().getAttack(testing.getInventory().getItem(0)))
+testing.getInventory().addItem(Weapons("Short Sword", 8, CONSTANT.SLASHING, 0, CONSTANT.STRENGTH, CONSTANT.FIRE))
+
+test = Character(Elf(), Wizard(), Stats(1, 1, 1, 1, 1, 1))
+test.getInventory().addItem(Weapons("Short Sword", 8, CONSTANT.SLASHING, 0, CONSTANT.STRENGTH, "None"))
+
+
+test.getDefence().defend(testing.getAttack().getAttack(testing.getInventory().getItem(0)),
+                         testing.getInventory().getItem(0).getDamage())
+
+print(test.getStats().getCurrentHealth())

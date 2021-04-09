@@ -1,5 +1,7 @@
 from src.Constants import *
+
 CONSTANT = Constants()
+
 
 class Stats:
     def __init__(self, st: int, dx: int, cn: int, il: int, ws: int, ca: int):
@@ -11,6 +13,48 @@ class Stats:
         self._cha = ca
         self._health = None
         self._armor = None
+        self._currentHealth = self._health
+
+    def setHealthArmor(self, hh: int, ac: int):
+        self._health = hh
+        self._armor = ac
+        self._currentHealth = self._health
+
+    def takeDamage(self, dm):
+        self._currentHealth -= dm
+
+    def heal(self, am: int):
+        self._currentHealth = +am
+        if self._currentHealth > self._health:
+            self._currentHealth = self._health
+
+    def statBonus1(self, bn: str):
+        if bn == CONSTANT.STRENGTH:
+            self._stre += 2
+        elif bn == CONSTANT.DEXTERITY:
+            self._dex += 2
+        elif bn == CONSTANT.CONSTITUTION:
+            self._con += 2
+        elif bn == CONSTANT.INTELLIGENCE:
+            self._intel += 2
+        elif bn == CONSTANT.WISDOM:
+            self._wis += 2
+        elif bn == CONSTANT.CHARISMA:
+            self._cha += 2
+
+    def statBonus2(self, bn: str):
+        if bn == CONSTANT.STRENGTH:
+            self._stre += 1
+        elif bn == CONSTANT.DEXTERITY:
+            self._dex += 1
+        elif bn == CONSTANT.CONSTITUTION:
+            self._con += 1
+        elif bn == CONSTANT.INTELLIGENCE:
+            self._intel += 1
+        elif bn == CONSTANT.WISDOM:
+            self._wis += 1
+        elif bn == CONSTANT.CHARISMA:
+            self._cha += 1
 
     def printStats(self):
         print("str:", self._stre, "dex:", self._dex,
@@ -41,34 +85,5 @@ class Stats:
     def getArmor(self):
         return self._armor
 
-    def setHealthArmor(self, hh: int, ac: int):
-        self._health = hh
-        self._armor = ac
-
-    def statBonus1(self, bn: str):
-        if bn == CONSTANT.STRENGTH:
-            self._stre += 2
-        elif bn == CONSTANT.DEXTERITY:
-            self._dex += 2
-        elif bn == CONSTANT.CONSTITUTION:
-            self._con += 2
-        elif bn == CONSTANT.INTELLIGENCE:
-            self._intel += 2
-        elif bn == CONSTANT.WISDOM:
-            self._wis += 2
-        elif bn == CONSTANT.CHARISMA:
-            self._cha += 2
-
-    def statBonus2(self, bn: str):
-        if bn == CONSTANT.STRENGTH:
-            self._stre += 1
-        elif bn == CONSTANT.DEXTERITY:
-            self._dex += 1
-        elif bn == CONSTANT.CONSTITUTION:
-            self._con += 1
-        elif bn == CONSTANT.INTELLIGENCE:
-            self._intel += 1
-        elif bn == CONSTANT.WISDOM:
-            self._wis += 1
-        elif bn == CONSTANT.CHARISMA:
-            self._cha += 1
+    def getCurrentHealth(self):
+        return  self._currentHealth

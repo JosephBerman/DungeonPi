@@ -12,6 +12,8 @@ class Constants:
         self.FAILROLL = 1
         self.FAIL = -100
         self.ITEMATTACK = -200
+        self.HIT = 150
+        self.MISS = -150
         self.STRENGTH = "Strength"
         self.DEXTERITY = "Dexterity"
         self.CONSTITUTION = "Constitution"
