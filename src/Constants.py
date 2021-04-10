@@ -28,4 +28,5 @@ class Constants:
         self.BLUDGEONING = "Bludgeoning"
         self.SLASHING = "Slashing"
         self.PIERCING = "Piercing"
+        self.NONE = "None"
 

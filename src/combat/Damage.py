@@ -5,6 +5,7 @@ import random
 random.seed()
 CONSTANT = Constants()
 
+
 class Damage:
     def __init__(self, dd: int, dt: str, mg: str):
         self._damageDie = dd
@@ -22,7 +23,6 @@ class Damage:
 
     def getDamageType(self) -> str:
         return self._damageType
-
 
 
 class Magic:
