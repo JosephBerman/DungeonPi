@@ -30,4 +30,8 @@ class Constants:
         self.PIERCING = "Piercing"
         self.NONE = "None"
         self.WALL = "Wall"
-
+        self.LOCKED = "Locked"
+        self.NORTH = "NORTH"
+        self.EAST = "EAST"
+        self.SOUTH = "SOUTH"
+        self.WEST = "WEST"
