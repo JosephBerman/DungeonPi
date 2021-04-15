@@ -8,7 +8,6 @@ import random
 random.seed()
 
 
-# TODO add parent class item to weapons and have the inventory take it
 class Weapons(Item):
     def __init__(self, nm: str, dd: int, dt: str, rg: int, bs: str, mg: str):
         super().__init__(nm)

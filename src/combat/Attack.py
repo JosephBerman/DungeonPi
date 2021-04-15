@@ -12,7 +12,6 @@ class Attack:
     def __init__(self, st: Stats):
         self._stats = st
 
-    # TODO figure out how i want to handle taking the hit
     def getAttack(self, item: Item) -> int:
         roll = random.randint(1, CONSTANT.D20)
         if type(item) is not Weapons:
@@ -25,3 +24,4 @@ class Attack:
             return CONSTANT.FAIL
         else:
             return roll + item.getBonus(self._stats)
+

@@ -1,5 +1,6 @@
 from src.combat.Damage import *
 
+
 class Item:
     def __init__(self, nm: str):
         self._name = nm
@@ -24,5 +25,7 @@ class Item:
 class NullItem(Item):
     def __init__(self):
         super().__init__("NULL")
+
+
 
 

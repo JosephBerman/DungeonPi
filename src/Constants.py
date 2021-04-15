@@ -29,4 +29,5 @@ class Constants:
         self.SLASHING = "Slashing"
         self.PIERCING = "Piercing"
         self.NONE = "None"
+        self.WALL = "Wall"
 

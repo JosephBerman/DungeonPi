@@ -24,7 +24,7 @@ class Stats:
         self._currentHealth -= dm
 
     def heal(self, am: int):
-        self._currentHealth = +am
+        self._currentHealth += am
         if self._currentHealth > self._health:
             self._currentHealth = self._health
 
@@ -86,4 +86,4 @@ class Stats:
         return self._armor
 
     def getCurrentHealth(self):
-        return  self._currentHealth
+        return self._currentHealth

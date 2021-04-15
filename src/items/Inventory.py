@@ -13,8 +13,6 @@ class Inventory:
             self._items = [NullItem()]
             return
 
-
-
     def printInventory(self):
         print(self._items)
 
@@ -23,7 +21,7 @@ class Inventory:
 
     def addItem(self, itm: Item):
         if self._items[0].__eq__(NullItem()):
-            self._items[0] = itm
+            self._items.insert(0, itm)
         else:
             self._items.append(itm)
 
@@ -48,5 +46,3 @@ class Inventory:
             if len(self._items) == 1:
                 self._items.append(NullItem())
             return self._items.pop(im)
-
-
