@@ -12,15 +12,16 @@ class Wall:
     def getPath(self):
         return self._path
 
+#TODO I need to fix this circle depdancy, thinking of making a connection class
 
 class Door(Wall):
-    def __init__(self, rm: Room):
+    def __init__(self, rm):
         super().__init__()
         self._path = rm
 
 
 class LockedDoor(Door):
-    def __init__(self, rm: Room, ky: Key):
+    def __init__(self, rm, ky: Key):
         super().__init__(rm)
         self._ID = ky.getID()
         self._locked = True

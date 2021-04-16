@@ -27,3 +27,19 @@ class Room:
 
     def addItem(self, it: Item):
         self._items.append(it)
+'''
+    def movePlayer(self, dr: str):
+        if dr == CONSTANT.NORTH:
+            if self._north is type(Door):
+                self._north.getPath().addPlayer(self._player)
+                self.removePlayer()
+            elif self._north is type(LockedDoor):
+                if not self._north.isLocked():
+                    self._north.getPath().addPlayer(self._player)
+                    self.removePlayer()
+
+
+'''
+
+
+
