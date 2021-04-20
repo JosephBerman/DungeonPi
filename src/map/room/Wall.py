@@ -12,7 +12,8 @@ class Wall:
     def getPath(self):
         return self._path
 
-#TODO I need to fix this circle depdancy, thinking of making a connection class
+
+# TODO I need to fix this circle depdancy, thinking of making a connection class
 
 class Door(Wall):
     def __init__(self, rm):
