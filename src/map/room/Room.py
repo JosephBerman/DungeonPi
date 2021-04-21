@@ -40,37 +40,22 @@ class Room:
 
     def movePlayer(self, dr: str):
         if dr == CONSTANT.NORTH:
-            if type(self._north) is Door:
-                self._north.getPath().addPlayer(self._player)
-                self.removePlayer()
-            elif type(self._north) is LockedDoor:
-                if not self._north.isLocked():
-                    self._north.getPath().addPlayer(self._player)
-                    self.removePlayer()
+            self.movePlayerDir(self._north)
         elif dr == CONSTANT.EAST:
-            if type(self._east) is Door:
-                self._east.getPath().addPlayer(self._player)
-                self.removePlayer()
-            elif type(self._east) is LockedDoor:
-                if not self._east.isLocked():
-                    self._east.getPath().addPlayer(self._player)
-                    self.removePlayer()
+            self.movePlayerDir(self._east)
         elif dr == CONSTANT.SOUTH:
-            if type(self._south) is Door:
-                self._south.getPath().addPlayer(self._player)
-                self.removePlayer()
-            elif type(self._south) is LockedDoor:
-                if not self._south.isLocked():
-                    self._south.getPath().addPlayer(self._player)
-                    self.removePlayer()
+            self.movePlayerDir(self._south)
         elif dr == CONSTANT.WEST:
-            if type(self._west) is Door:
-                self._west.getPath().addPlayer(self._player)
+            self.movePlayerDir(self._west)
+
+    def movePlayerDir(self, wl: Wall):
+        if type(wl) is Door:
+            wl.getPath().addPlayer(self._player)
+            self.removePlayer()
+        elif type(wl) is LockedDoor:
+            if not wl.isLocked():
+                wl.getPath().addPlayer(self._player)
                 self.removePlayer()
-            elif type(self._west) is LockedDoor:
-                if not self._west.isLocked():
-                    self._west.getPath().addPlayer(self._player)
-                    self.removePlayer()
 
 
 room1 = Room()
