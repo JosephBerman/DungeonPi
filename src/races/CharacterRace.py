@@ -1,3 +1,8 @@
+from src.Constants import *
+
+CONSTANT = Constants()
+
+
 class CharacterRace:
     def __init__(self, nm: str, sd: int, s1: str, s2: str):
         self._name = nm
@@ -21,4 +26,6 @@ class CharacterRace:
         return self._statBonus2
 
 
-
+class EmptyRace(CharacterRace):
+    def __init__(self):
+        super().__init__(CONSTANT.NONE, 0, CONSTANT.NONE, CONSTANT.NONE)

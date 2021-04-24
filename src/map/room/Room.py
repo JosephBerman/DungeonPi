@@ -13,7 +13,7 @@ class Room:
         self._east = None
         self._south = None
         self._west = None
-        self._player = None
+        self._player = Character
         self._characters = []
         self._items = []
 
@@ -27,7 +27,8 @@ class Room:
         self._player = pl
 
     def removePlayer(self):
-        self._player = None
+        self._player = EmptyCharacter()
+
 
     def getPlayer(self) -> Character:
         return self._player
@@ -56,10 +57,14 @@ class Room:
             if not wl.isLocked():
                 wl.getPath().addPlayer(self._player)
                 self.removePlayer()
+            else:
+                print("Door Locked")
+
 
 
 room1 = Room()
 room2 = Room()
+
 
 room1.makeWalls(Door(room2), Wall(), Wall(), Wall())
 room2.makeWalls(Wall(), Wall(), Door(room1), Wall())
@@ -68,6 +73,8 @@ testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
 room1.addPlayer(testing)
 room1.getPlayer().printCharacter()
 room1.movePlayer(CONSTANT.NORTH)
+
 room2.getPlayer().printCharacter()
 room2.movePlayer(CONSTANT.SOUTH)
 room1.getPlayer().printCharacter()
+room2.getPlayer().printCharacter()

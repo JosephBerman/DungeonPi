@@ -1,3 +1,8 @@
+from src.Constants import *
+
+CONSTANT = Constants()
+
+
 class CharacterClass:
     def __init__(self, nm: str, ht: int, ba: int):
         self._name = nm
@@ -15,3 +20,8 @@ class CharacterClass:
 
     def getBaseArmor(self):
         return self._baseArmor
+
+
+class EmptyClass(CharacterClass):
+    def __init__(self):
+        super().__init__(CONSTANT.NONE, 0, 0)

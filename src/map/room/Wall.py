@@ -35,6 +35,8 @@ class LockedDoor(Door):
             print("Locked, incorrect key")
 
     def isLocked(self):
+        if self._locked:
+            print("Door locked.\n")
         return self._locked
 
     def getPath(self):
