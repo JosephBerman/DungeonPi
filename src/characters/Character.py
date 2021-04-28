@@ -50,7 +50,6 @@ class EmptyCharacter(Character):
         super().__init__(EmptyRace(), EmptyClass(), Stats(0, 0, 0, 0, 0, 0))
 
 
-
 testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
 testing.getInventory().addItem(Weapons("Short Sword", 6, CONSTANT.SLASHING, 0, CONSTANT.STRENGTH, CONSTANT.FIRE))
 

@@ -9,26 +9,29 @@ CONSTANT = Constants()
 
 class Room:
     def __init__(self):
-        self._north = None
-        self._east = None
-        self._south = None
-        self._west = None
+        self._north = Wall()
+        self._east = Wall()
+        self._south = Wall()
+        self._west = Wall()
         self._player = Character
         self._characters = []
         self._items = []
 
-    def makeWalls(self, nt: Wall, et: Wall, st: Wall, wt: Wall):
-        self._north = nt
-        self._east = et
-        self._south = st
-        self._west = wt
+    def changeWall(self, dr, wl: Wall):
+        if dr == CONSTANT.NORTH:
+            self._north = wl
+        elif dr == CONSTANT.EAST:
+            self._east = wl
+        elif dr == CONSTANT.SOUTH:
+            self._south = wl
+        elif dr == CONSTANT.WEST:
+            self._west = wl
 
     def addPlayer(self, pl: Character):
         self._player = pl
 
     def removePlayer(self):
         self._player = EmptyCharacter()
-
 
     def getPlayer(self) -> Character:
         return self._player
@@ -61,13 +64,11 @@ class Room:
                 print("Door Locked")
 
 
-
 room1 = Room()
 room2 = Room()
 
-
-room1.makeWalls(Door(room2), Wall(), Wall(), Wall())
-room2.makeWalls(Wall(), Wall(), Door(room1), Wall())
+room1.changeWall(CONSTANT.NORTH, Door(room2))
+room2.changeWall(CONSTANT.SOUTH, Door(room1))
 
 testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
 room1.addPlayer(testing)
@@ -77,4 +78,3 @@ room1.movePlayer(CONSTANT.NORTH)
 room2.getPlayer().printCharacter()
 room2.movePlayer(CONSTANT.SOUTH)
 room1.getPlayer().printCharacter()
-room2.getPlayer().printCharacter()
