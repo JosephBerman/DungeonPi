@@ -50,6 +50,8 @@ class EmptyCharacter(Character):
         super().__init__(EmptyRace(), EmptyClass(), Stats(0, 0, 0, 0, 0, 0))
 
 
+
+'''
 testing = Character(Elf(), Monk(), Stats(1, 1, 1, 1, 1, 1))
 testing.getInventory().addItem(Weapons("Short Sword", 6, CONSTANT.SLASHING, 0, CONSTANT.STRENGTH, CONSTANT.FIRE))
 
@@ -60,3 +62,4 @@ test.getDefence().defend(testing.getAttack().getAttack(testing.getInventory().ge
                          testing.getInventory().getItem(0).getDamage())
 
 print(test.getStats().getCurrentHealth())
+'''

@@ -64,6 +64,13 @@ class Room:
                 print("Door Locked")
 
 
+
+
+class EmptyRoom(Room):
+    def __init__(self):
+        super().__init__()
+
+'''
 room1 = Room()
 room2 = Room()
 
@@ -78,3 +85,4 @@ room1.movePlayer(CONSTANT.NORTH)
 room2.getPlayer().printCharacter()
 room2.movePlayer(CONSTANT.SOUTH)
 room1.getPlayer().printCharacter()
+'''
