@@ -35,3 +35,6 @@ class Constants:
         self.EAST = "EAST"
         self.SOUTH = "SOUTH"
         self.WEST = "WEST"
+        self.ORIGIN = "ORIGIN"
+        self.ROOMRATE = 100
+
