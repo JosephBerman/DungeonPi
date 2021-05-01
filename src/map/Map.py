@@ -29,22 +29,52 @@ class Map:
         elif dir == CONSTANT.SOUTH:
             return
         elif dir == CONSTANT.ORIGIN:
-            self.addRoom(Room(), cords[1], cords[0])
-
+            while True:
+                self.addRoom(Room(), cords[1], cords[0])
+                direction = self.generateMapRoomsDirections(random.randint(1, 4))
+                newCords = self.generateMapsNewCords(direction, cords)
+                if self.generateMapRoomsEdgeCheck(direction, newCords):
+                    break
+            self.addRoom(Room(), newCords[1], newCords[0])
         elif dir == CONSTANT.NONE:
             return
 
+
     def generateMapRoomsEdgeCheck(self, dir: str, cords: list):
         if (cords[1] == self._ycord) and (dir == CONSTANT.SOUTH):  # Highest Y
-           return True
+            return True
         elif (cords[1] == 0) and (dir == CONSTANT.NORTH):  # Lowest Y
             return True
         elif (cords[0] == self._xcord) and (dir == CONSTANT.EAST):  # Highest X
             return True
         elif (cords[0] == 0) and (dir == CONSTANT.WEST):  # Lowest X
             return True
+        elif type(self._level[cords[1]][cords[0]]) is not EmptyRoom:  # If a room already exists
+            return True
         else:
-           return False
+            return False
+
+    def generateMapRoomsDirections(self, num: int) -> str:
+        if num == 0:
+            return CONSTANT.NORTH
+        elif num == 1:
+            return CONSTANT.EAST
+        elif num == 2:
+            return CONSTANT.SOUTH
+        elif num == 3:
+            return CONSTANT.WEST
+
+    def generateMapsNewCords(self, dir: str, cords: list) -> list:
+        if dir == CONSTANT.NORTH:
+            return [cords[0], cords[1] + 1]
+        elif dir == CONSTANT.SOUTH:
+            return [cords[0], cords[1] -1]
+        elif dir == CONSTANT.WEST:
+            return[cords[0] - 1, cords[1]]
+        elif dir == CONSTANT.EAST:
+            return [cords[0] + 1, cords[1]]
+        else:
+            return cords
 
 
     def printMap(self):
