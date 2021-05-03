@@ -13,11 +13,15 @@ class Map:
         self._ycord = ln
         self._level = [[EmptyRoom() for i in range(self._xcord)] for j in range(self._ycord)]
 
+    # generateMap: None -> Map
+    # generates a map for the player to explore
     def generateMap(self):
         origin = [(int(self._xcord / 2)), self._ycord - 1]
         print(origin)
         self.generateMapRooms(CONSTANT.ORIGIN, CONSTANT.ROOMRATE, origin)
 
+    # generateMapRooms: String, Integer, List of Integers -> Room
+    # Recursively generates rooms and connects them together, starting at the origin
     def generateMapRooms(self, dir: str, rate: int, cords: list):
         if dir == CONSTANT.NORTH:
             return
@@ -43,7 +47,8 @@ class Map:
         elif dir == CONSTANT.NONE:
             return
 
-
+    # generateMapRoomsEdgeCheck : String, List of Integers
+    # Checks to see if a room is able to be placed at the cords
     def generateMapRoomsEdgeCheck(self, dir: str, cords: list):
         if (cords[1] >= self._ycord) and (dir == CONSTANT.SOUTH):  # Highest Y
             return True
@@ -58,6 +63,8 @@ class Map:
         else:
             return False
 
+    # generateMapRoomsDirection : Integer -> String
+    # Random;y picks a new direction
     def generateMapRoomsDirections(self, num: int) -> str:
         if num == 0:
             print("North")
@@ -72,6 +79,8 @@ class Map:
             print("West")
             return CONSTANT.WEST
 
+    # generateMapsNewCords : String, List of Integers -> List of Integers
+    # generates a new cord dependant on what direction it was passed
     def generateMapsNewCords(self, dir: str, cords: list) -> list:
         if dir == CONSTANT.NORTH:
             return [cords[0], cords[1] - 1]
@@ -84,16 +93,19 @@ class Map:
         else:
             return cords
 
+    # newRate : Integer -> Boolean
+    # Decides to generate more rooms or not
     def newRate(self, rt: int) -> bool:
         if random.randint(0, rt) == 0:
             return False
         return True
 
-
+    #Prints the map
     def printMap(self):
         for i in range(self._ycord):
             print(self._level[i])
 
+    #Adds a room
     def addRoom(self, rm: Room, x: int, y: int):
         self._level[x][y] = rm
 
